@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: Produto-Service
+  datasource:
+    username: vktgabriel
+    password: 1234
+    url: jdbc:h2:mem:aluno
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/master/account/
+          jwk-set-uri: http://localhost:8081/realms/spring/protocol/openid-connect/certs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus, metrics
+  metrics:
+    tags:
+      application: pedido-service
+
+springdoc:
+  override-with-generic-response: false
