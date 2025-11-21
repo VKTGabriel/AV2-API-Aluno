@@ -19,6 +19,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +34,7 @@ public class AlunoController implements GenericController {
     private final AlunoMapper alunoMapper;
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Buscar", description = "Busca todos os registros de aluno no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = SimpleResponseAlunoDTO.class))})
@@ -43,6 +45,7 @@ public class AlunoController implements GenericController {
 
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Salvar", description = "Cria um registro de aluno no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Cadastrado com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = SimpleResponseAlunoDTO.class))}),
@@ -56,6 +59,7 @@ public class AlunoController implements GenericController {
 
 
     @GetMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Buscar por Id", description = "Busca um registro de aluno no banco de dados pelo id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = ResponseAlunoDTO.class))}),
@@ -67,6 +71,7 @@ public class AlunoController implements GenericController {
 
 
     @PutMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Atualizar", description = "atualiza um registro de aluno no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Atualizado com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = SimpleResponseAlunoDTO.class))}),
@@ -80,6 +85,7 @@ public class AlunoController implements GenericController {
 
 
     @DeleteMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Deletar", description = "Deleta um registro de aluno no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Deletado com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = Void.class))}),

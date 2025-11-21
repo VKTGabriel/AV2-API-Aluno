@@ -10,15 +10,14 @@ spring:
     console:
       enabled: true
   jpa:
-    show-sql: true
     hibernate:
       ddl-auto: update
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8081/realms/master/account/
-          jwk-set-uri: http://localhost:8081/realms/spring/protocol/openid-connect/certs
+          issuer-uri: http://localhost:8081/realms/AV2
+          jwk-set-uri: http://localhost:8081/realms/AV2/protocol/openid-connect/certs
 
 management:
   endpoints:
@@ -27,7 +26,7 @@ management:
         include: health, prometheus, metrics
   metrics:
     tags:
-      application: pedido-service
+      application: aluno-service
 
 springdoc:
   override-with-generic-response: false

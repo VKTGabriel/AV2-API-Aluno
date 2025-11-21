@@ -20,6 +20,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public class CursoController implements GenericController {
     private final CursoMapper cursoMapper;
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @Operation(summary = "Buscar", description = "Busca todos os registros de curso no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = SimpleResponseCursoDTO.class))})
@@ -42,6 +44,7 @@ public class CursoController implements GenericController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Salvar", description = "Cria um registro de curso no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "Cadastrado com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = SimpleResponseCursoDTO.class))}),
@@ -54,6 +57,7 @@ public class CursoController implements GenericController {
     }
 
     @GetMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Buscar po Id", description = "Busca um registro de curso no banco de dados pelo id")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = ResponseCursoDTO.class))}),
@@ -64,6 +68,7 @@ public class CursoController implements GenericController {
     }
 
     @PutMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Atualizar", description = "atualiza um registro de curso no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Atualizado com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = SimpleResponseCursoDTO.class))}),
@@ -76,6 +81,7 @@ public class CursoController implements GenericController {
     }
 
     @DeleteMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Deletar", description = "Deleta um registro de curso no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Deletado com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = Void.class))}),
@@ -87,6 +93,7 @@ public class CursoController implements GenericController {
     }
 
     @PostMapping("{id}/alunos/{idAluno}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Associar Aluno ao Curso", description = "Associa um registro de aluno a um curso no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Associado com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = Void.class))}),
@@ -99,6 +106,7 @@ public class CursoController implements GenericController {
     }
 
     @DeleteMapping("{id}/alunos/{idAluno}")
+    @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "Desassociar Aluno ao Curso", description = "Remove a associação de um registro de aluno a um curso no banco de dados")
     @ApiResponses({
             @ApiResponse(responseCode = "204", description = "Associação removida com sucesso", content = {@Content(mediaType = "application/json" , schema = @Schema(implementation = Void.class))}),
