@@ -24,7 +24,7 @@ Uma pequena api para demonstrar a interação Muitos-Muitos em uma API web-servi
 | `client_id` | `string` | **Obrigatório**. av2 |
 | `username` | `string` | **Obrigatório**. your username |
 | `password` | `string` | **Obrigatório**. your password  |
-| `grant_type` | `string` | **Obrigatório**. your username |
+| `grant_type` | `string` | **Obrigatório**. password |
 
 
 
