@@ -12,6 +12,6 @@ WORKDIR /app
 
 COPY --from=build ./build/target/*.jar ./appserver.jar
 
-EXPOSE 8080
+EXPOSE 9000
 
 ENTRYPOINT exec java -jar appserver.jar

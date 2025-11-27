@@ -8,12 +8,12 @@ volumes:
 services:
   api:
     container_name: av2
-    image: vktgabriel/av2:latest
+    build:
+      context: .
     depends_on:
-      keycloak:
-        condition: service_started
+      - keycloak
     ports:
-      - "8080:8080"
+      - "9000:9000"
     networks:
       - av2_net
 
@@ -38,14 +38,15 @@ services:
       - grafana-storage:/var/lib/grafana
 
   keycloak:
-    image: quay.io/keycloak/keycloak:latest
+    image: quay.io/keycloak/keycloak:22.0.5
     container_name: keycloak
     networks:
       - av2_net
     ports:
-      - "8081:8080"
+      - "8080:8080"
+    volumes:
+      - ./realm-config.json:/opt/keycloak/data/import/realm-config.json
     environment:
       - KEYCLOAK_ADMIN=keycloak
       - KEYCLOAK_ADMIN_PASSWORD=keycloak
-    command:
-      - start-dev
+    command: ['start-dev', "--import-realm"]

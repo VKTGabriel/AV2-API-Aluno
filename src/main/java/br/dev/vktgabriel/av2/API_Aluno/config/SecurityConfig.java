@@ -44,8 +44,8 @@ public class SecurityConfig {
                 "/swagger-ui/**",
                 "/webjars/**",
                 "/h2-console/**",
-                "/actuator/**"
-
+                "/actuator/**",
+                "/token"
             );
 
     }

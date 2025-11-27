@@ -1,6 +1,6 @@
 spring:
   application:
-    name: Produto-Service
+    name: Aluno-Service
   datasource:
     username: vktgabriel
     password: 1234
@@ -16,8 +16,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:8081/realms/AV2
-          jwk-set-uri: http://keycloak:8081/realms/AV2/protocol/openid-connect/certs
+          issuer-uri: http://keycloak:8080/realms/AV2
+          jwk-set-uri: http://keycloak:8080/realms/AV2/protocol/openid-connect/certs
 
 management:
   endpoints:
@@ -30,3 +30,6 @@ management:
 
 springdoc:
   override-with-generic-response: false
+
+server:
+  port: 9000
