@@ -24,10 +24,10 @@ Acesse a rota [Security/Token] na documentação Swagger e solicite um token de 
 
 #### Acesso USER [Autoridade limitada a listar os cursos]
 
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `username` | `string` | User |
-| `password` | `string` | 123  |
+| Parâmetro   | Tipo       | Descrição |
+| :---------- | :--------- |:----------|
+| `username` | `string` | user      |
+| `password` | `string` | 123       |
 
 
 Insira o token obtido na aba de "Autorize" (Botão verde acima de todos os endpoints) da documentalção. Dessa forma, estará livre para utilizar todos os endpoints da API enquanto o token se mantes válido.
@@ -49,14 +49,16 @@ Execute o comando para iniciar o Build da aplicação e execução do container 
 
 ## Monitoramento
 
-Acesse o Grafana
+[Grafana](http://18.230.22.90:3000/)
 
-```bash
-  http://18.230.22.90:3000
-```
+| Parâmetro  | Tipo       | Descrição |
+|:-----------| :--------- |:----------|
+| `login`    | `string` | admin     |
+| `password` | `string` | admin     |
+
 
 * Acesse Dashbord: JVM (Micrometer)
-* Acesse Dashbord: Spring Boot Statistics
+* Acesse Dashbord: Spring Boot Sistem Monitor
     
 ## Screenshots
 
