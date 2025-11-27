@@ -13,12 +13,27 @@
         }
       ],
       "realmRoles": ["ADMIN"]
+    },
+    {
+      "username": "User",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "123"
+        }
+      ],
+      "realmRoles": ["USER"]
     }
   ],
   "roles": {
     "realm": [
       {
         "name": "ADMIN"
+      },
+      {
+        "name": "USER"
       }
     ]
   },
