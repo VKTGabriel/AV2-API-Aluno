@@ -8,8 +8,7 @@ volumes:
 services:
   api:
     container_name: av2
-    build:
-      context: .
+    image: vktgabriel/av2:latest
     depends_on:
       - keycloak
     ports:

@@ -15,7 +15,7 @@
       "realmRoles": ["ADMIN"]
     },
     {
-      "username": "User",
+      "username": "user",
       "enabled": true,
       "emailVerified": true,
       "credentials": [
