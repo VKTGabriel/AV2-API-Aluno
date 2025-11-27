@@ -5,7 +5,7 @@ Uma pequena api para demonstrar a interação Muitos-Muitos em uma API web-servi
 
 ## Documentação
 
-[Swagger Doc](http://localhost:9000/swagger-ui/index.html)
+[Swagger Doc](http://18.230.22.90:9000/swagger-ui/index.html)
 
 
 ## ScreenShot
@@ -13,14 +13,22 @@ Uma pequena api para demonstrar a interação Muitos-Muitos em uma API web-servi
 ![App Screenshot](https://av2-images.s3.us-east-1.amazonaws.com/Captura+de+tela+2025-11-26+223402.png)
 ## Obter Token JWT
 
-#### Retorna token
+Acesse a rota [Security/Token] na documentação Swagger e solicite um token de acesso.
 
-Acesse a rota [Security/Token] na documentação Swagger e solicite um token de acesso admin.
+#### Acesso ADMIN
 
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
 | `username` | `string` | admin |
 | `password` | `string` | 123  |
+
+#### Acesso USER [Autoridade limitada a listar os cursos]
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `username` | `string` | User |
+| `password` | `string` | 123  |
+
 
 Insira o token obtido na aba de "Autorize" (Botão verde acima de todos os endpoints) da documentalção. Dessa forma, estará livre para utilizar todos os endpoints da API enquanto o token se mantes válido.
 ## Rodando localmente
@@ -44,7 +52,7 @@ Execute o comando para iniciar o Build da aplicação e execução do container 
 Acesse o Grafana
 
 ```bash
-  http://localhost:3000
+  http://18.230.22.90:3000
 ```
 
 * Acesse Dashbord: JVM (Micrometer)
@@ -53,4 +61,8 @@ Acesse o Grafana
 ## Screenshots
 
 ![App Screenshot](https://app-restaurante-bucket.s3.sa-east-1.amazonaws.com/as.png)
+
+
+## Monito
+Insira um gif ou um link de alguma demonstração
 
