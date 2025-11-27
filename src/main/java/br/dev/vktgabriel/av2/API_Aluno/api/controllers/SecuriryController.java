@@ -30,7 +30,7 @@ public class SecuriryController {
         map.add("grant_type", "password");
         map.add("username", dados.username());
         map.add("password", dados.password());
-        map.add("client_id", dados.clientID());
+        map.add("client_id", "av2");
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
         return restTemplate.postForEntity("http://keycloak:8080/realms/AV2/protocol/openid-connect/token", request, String.class);
     }
